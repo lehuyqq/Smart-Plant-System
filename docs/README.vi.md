@@ -20,9 +20,6 @@ Giao diện được thiết kế bằng EEZ Studio và render bằng LVGL v9.4.
 | --- | --- |
 | <img src="assets/demo-img.png" alt="Mô hình Smart Plant trên breadboard với ESP32 và màn hình TFT" width="520"> | <img src="assets/smartplant-ui.jpg" alt="Giao diện Smart Plant trong EEZ Studio" width="620"> |
 
-[![Xem video demo](assets/demo-img.png)](assets/VIDEO.mp4)
-
-[Mở video demo](assets/VIDEO.mp4)
 
 ## Tính năng
 
