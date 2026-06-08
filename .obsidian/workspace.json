@@ -1,0 +1,206 @@
+{
+  "main": {
+    "id": "5324373015726ba8",
+    "type": "split",
+    "children": [
+      {
+        "id": "4509724f8bf84da7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e7a7b303c61786dc",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "005b40c5ef716858",
+    "type": "split",
+    "children": [
+      {
+        "id": "0b87fd774f0831a5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fcd148a5496e1f99",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "4079b021b9a8d6f5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d3cbfc5ba7a9c3e9",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "45fad7617b9d1723",
+    "type": "split",
+    "children": [
+      {
+        "id": "303ff3533b212d97",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d951f28c155b80e1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Smart Plant System.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Smart Plant System"
+            }
+          },
+          {
+            "id": "eb3abc9155c13af0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Smart Plant System.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Smart Plant System"
+            }
+          },
+          {
+            "id": "03982e19be005a59",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "ea4630e2b8e8fd8b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "809df7e645991de0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Smart Plant System.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Smart Plant System"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "homepage:Open homepage": false
+    }
+  },
+  "active": "fcd148a5496e1f99",
+  "lastOpenFiles": [
+    "Untitled.base",
+    "Untitled.canvas",
+    "Cay-trong-thong-minh",
+    "AI-potholes",
+    "Cay-trong-thong-minh/Bases/Smart Plant.canvas",
+    "Cay-trong-thong-minh/Smart Plant System.md",
+    "Cay-trong-thong-minh/Bases/Task Tracker.base",
+    "Cay-trong-thong-minh/Bases/Reading List.base",
+    "Cay-trong-thong-minh/Bases/Daily Notes Index.base",
+    "Cay-trong-thong-minh/Bases/Smart Plant Tracker.base",
+    "Cay-trong-thong-minh/Bases/Dashboard.base",
+    "Cay-trong-thong-minh/AGENTS.md",
+    "Cay-trong-thong-minh/2026-05-11.md",
+    "Bases/ESP32 System.canvas",
+    "Cay-trong-thong-minh/Tasks/Write README.md",
+    "Cay-trong-thong-minh/Tasks/Fix relay GPIO conflict.md",
+    "Cay-trong-thong-minh/Tasks/Calibrate touch screen.md",
+    "Cay-trong-thong-minh/Tasks/Build ESP32 dashboard.md",
+    "Cay-trong-thong-minh/Tasks/Add buzzer alarm.md",
+    "Cay-trong-thong-minh/Books/Clean Code.md"
+  ]
+}

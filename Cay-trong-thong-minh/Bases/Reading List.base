@@ -1,0 +1,48 @@
+filters:
+  or:
+    - file.hasTag("book")
+formulas:
+  reading_time: if(pages, (pages * 2).toString() + " min", "")
+  status_icon: if(status == "reading", "Reading", if(status == "done", "Done", "To Read"))
+  year_read: if(finished_date, date(finished_date).year, "")
+properties:
+  author:
+    displayName: Author
+  pages:
+    displayName: Pages
+  status:
+    displayName: Status
+  formula.reading_time:
+    displayName: Est. Time
+  formula.status_icon:
+    displayName: Status
+  formula.year_read:
+    displayName: Year Read
+views:
+  - type: table
+    name: Reading List
+    order:
+      - file.name
+      - author
+      - pages
+      - formula.reading_time
+      - formula.status_icon
+  - type: table
+    name: Currently Reading
+    filters:
+      and:
+        - status == "reading"
+    order:
+      - file.name
+      - author
+      - pages
+      - started_date
+  - type: table
+    name: Finished
+    filters:
+      and:
+        - status == "done"
+    order:
+      - file.name
+      - author
+      - formula.year_read

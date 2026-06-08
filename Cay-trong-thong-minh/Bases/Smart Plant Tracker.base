@@ -1,0 +1,32 @@
+filters:
+  or:
+    - file.hasTag("smart-plant")
+    - file.hasTag("esp32")
+    - file.inFolder("smartPlant")
+formulas:
+  project_age: (now() - file.ctime).days
+  status_icon: if(status == "active", "Active", if(status == "done", "Done", if(status == "planning", "Planning", "Unknown")))
+properties:
+  status:
+    displayName: Status
+  formula.status_icon:
+    displayName: Status
+  formula.project_age:
+    displayName: Age (days)
+  file.folder:
+    displayName: Folder
+views:
+  - type: table
+    name: Project Overview
+    order:
+      - file.name
+      - formula.status_icon
+      - tags
+      - formula.project_age
+      - file.mtime
+  - type: cards
+    name: Cards
+    order:
+      - file.name
+      - status
+      - tags

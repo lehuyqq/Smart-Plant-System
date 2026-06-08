@@ -1,0 +1,30 @@
+filters:
+  or:
+    - file.hasTag("task")
+    - file.hasTag("book")
+    - file.hasTag("daily")
+formulas:
+  category: if(file.hasTag("task"), "Task", if(file.hasTag("book"), "Book", if(file.hasTag("daily"), "Daily", "Other")))
+  last_edit: file.mtime.format("YYYY-MM-DD HH:mm")
+properties:
+  formula.category:
+    displayName: Type
+  formula.last_edit:
+    displayName: Last Edited
+views:
+  - type: table
+    name: Everything
+    groupBy:
+      property: formula.category
+      direction: ASC
+    order:
+      - file.name
+      - formula.category
+      - formula.last_edit
+    limit: 50
+  - type: cards
+    name: Cards
+    order:
+      - file.name
+      - formula.category
+    limit: 20

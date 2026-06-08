@@ -1,0 +1,23 @@
+# Local credentials
+**/secrets.h
+
+# Arduino and embedded build outputs
+build/
+*.bin
+*.elf
+*.hex
+*.map
+*.lst
+
+# PlatformIO, if used later
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# Local editor and OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak

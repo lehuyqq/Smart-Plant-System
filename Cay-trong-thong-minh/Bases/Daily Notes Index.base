@@ -1,0 +1,32 @@
+filters:
+  and:
+    - file.inFolder("Daily Notes")
+    - file.hasTag("daily")
+formulas:
+  word_estimate: (file.size / 5).round(0)
+  day_of_week: date(file.basename).format("dddd")
+properties:
+  mood:
+    displayName: Mood
+  formula.word_estimate:
+    displayName: ~Words
+  formula.day_of_week:
+    displayName: Day
+views:
+  - type: table
+    name: Recent Notes
+    order:
+      - file.name
+      - formula.day_of_week
+      - mood
+      - formula.word_estimate
+      - file.mtime
+    limit: 30
+    summaries:
+      formula.word_estimate: Average
+  - type: list
+    name: Simple List
+    order:
+      - file.name
+      - formula.day_of_week
+      - mood
