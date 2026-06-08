@@ -1,37 +1,66 @@
-# Smart Plant System
+<h1 align="center">Smart Plant System</h1>
 
-Smart Plant System is an ESP32-based monitoring and watering dashboard for a small plant setup. It combines a 320x240 ST7789 TFT display, XPT2046 resistive touch, LVGL v9.4, EEZ Studio generated UI files, and Arduino sensor code for temperature, humidity, soil moisture, rain detection, light control, and pump control.
+<p align="center">
+  ESP32 smart plant dashboard with ST7789 touch display, LVGL UI, DHT11, soil moisture, rain sensing, relay light control, relay pump control, and an Obsidian project vault.
+</p>
 
-This repository also contains the Obsidian vault used to plan and document the project. The `.obsidian` folder, Bases, Canvas diagrams, tasks, books, and daily notes are included so the hardware notes and code history stay together.
+<p align="center">
+  <a href="docs/README.vi.md">Tiếng Việt</a>
+</p>
 
-## Main Features
+<p align="center">
+  <img alt="ESP32" src="https://img.shields.io/badge/ESP32-Arduino-00979D">
+  <img alt="LVGL" src="https://img.shields.io/badge/LVGL-v9.4-1E88E5">
+  <img alt="TFT" src="https://img.shields.io/badge/Display-ST7789-0D47A1">
+  <img alt="Touch" src="https://img.shields.io/badge/Touch-XPT2046-43A047">
+  <img alt="Obsidian" src="https://img.shields.io/badge/Docs-Obsidian-7C3AED">
+</p>
 
-- ESP32 Dev Module firmware built with Arduino IDE.
-- ST7789 TFT dashboard in landscape mode using TFT_eSPI and LVGL.
-- XPT2046 touch input for relay switches.
-- DHT11 temperature and humidity readings.
-- Soil moisture reading on ADC GPIO 35 with dry/wet calibration.
-- Rain sensor reading on ADC GPIO 34 with rain/sun UI status.
-- Active-low relay outputs for light and pump control.
-- WiFi + NTP time sync for GMT+7 Vietnam time.
-- Obsidian project management with `.base` trackers and `.canvas` diagrams.
+<p align="center">
+  <a href="#showcase">Showcase</a>
+  ·
+  <a href="#features">Features</a>
+  ·
+  <a href="#quick-start">Quick Start</a>
+  ·
+  <a href="#required-display-configuration">Display Config</a>
+  ·
+  <a href="#project-layout">Project Layout</a>
+  ·
+  <a href="#troubleshooting">Troubleshooting</a>
+</p>
 
-## Repository Layout
+<p align="center">
+  <img src="docs/assets/smartplant-ui.jpg" alt="Smart Plant dashboard designed in EEZ Studio" width="100%">
+</p>
 
-| Path | Purpose |
+## Overview
+
+Smart Plant System is a small ESP32 IoT project for monitoring and controlling a plant setup. The main firmware reads air temperature, air humidity, soil moisture, and rain level, then displays live values on a 320x240 TFT touch dashboard. Two on-screen switches control active-low relays for a light and a water pump.
+
+The UI is generated with EEZ Studio and rendered through LVGL v9.4. Project notes, pin maps, tasks, reading references, and architecture diagrams are kept in the included Obsidian vault so the firmware and hardware documentation stay together.
+
+## Showcase
+
+| Dashboard UI | Demo |
 | --- | --- |
-| `.obsidian/` | Obsidian vault settings and Homepage community plugin files. |
-| `Cay-trong-thong-minh/Smart Plant System.md` | Main project note with wiring, software flow, pin map, and development notes. |
-| `Cay-trong-thong-minh/Bases/` | Obsidian Bases and Canvas diagrams for project tracking. |
-| `Cay-trong-thong-minh/smartPlant/` | Main smart plant Arduino sketch and EEZ/LVGL generated UI source. |
-| `Cay-trong-thong-minh/ui/` | EEZ Studio generated UI export/reference files. |
-| `Cay-trong-thong-minh/kartis_smart_home_v1-main/` | Earlier smart home dashboard sketches and touch calibration tools. |
-| `Cay-trong-thong-minh/DHT_Test/` | Standalone DHT sensor test sketch. |
-| `Cay-trong-thong-minh/NeoPixel_Test/` | Standalone NeoPixel test sketch. |
-| `lv_conf.h` | Reference LVGL config copy. Arduino uses the copy in the LVGL library folder. |
-| `User_Setup.h` | Reference TFT_eSPI config copy. Arduino uses the copy in the TFT_eSPI library folder. |
+| <img src="docs/assets/smartplant-ui.jpg" alt="Smart Plant UI in EEZ Studio" width="620"> | [Watch demo video](docs/assets/smartplant-demo.mp4) |
 
-## Hardware Pin Map
+The dashboard shows the current time, date, soil status, rain/sun status, temperature arc, and relay controls. The sketch refreshes sensor data every 5 seconds and updates dashboard widgets every 500 ms.
+
+## Features
+
+| Area | What it does |
+| --- | --- |
+| Sensor monitoring | Reads DHT11 temperature/humidity, soil moisture, and rain sensor values. |
+| Touch dashboard | Uses ST7789 + XPT2046 with LVGL and EEZ Studio generated UI files. |
+| Relay control | Controls light and pump relays from UI switches. |
+| Time sync | Uses WiFi + NTP for GMT+7 Vietnam time with fallback values if WiFi fails. |
+| Plant status | Maps soil moisture and rain percentage into readable UI states. |
+| Local credentials | Keeps WiFi SSID/password in ignored `secrets.h`, with `secrets.example.h` as the template. |
+| Project vault | Includes Obsidian notes, Bases, Canvas diagrams, tasks, and reading references. |
+
+## Hardware
 
 | Component | GPIO | Notes |
 | --- | --- | --- |
@@ -49,31 +78,64 @@ This repository also contains the Obsidian vault used to plan and document the p
 | Touch MISO | 19 | XPT2046 MISO. |
 | Touch CS | 21 | XPT2046 chip select. |
 
-## Arduino Setup
+## Quick Start
 
-1. Install Arduino IDE and the ESP32 board package.
-2. Select `ESP32 Dev Module`.
-3. Use upload speed `115200` if higher speeds fail.
-4. Install these libraries:
-   - TFT_eSPI by Bodmer
-   - LVGL v9.4.x
-   - XPT2046_Touchscreen by Paul Stoffregen
-   - DHT sensor library by Adafruit
-5. Copy `Cay-trong-thong-minh/smartPlant/secrets.example.h` to `Cay-trong-thong-minh/smartPlant/secrets.h`.
-6. Fill in `WIFI_SSID` and `WIFI_PASSWORD` in `secrets.h`.
-7. Open `Cay-trong-thong-minh/smartPlant/smartPlant.ino` and upload it.
+1. Clone the repository.
 
-`secrets.h` is ignored by git so WiFi credentials do not get committed.
+```powershell
+git clone https://github.com/lehuyqq/Smart-Plant-System.git
+cd Smart-Plant-System
+```
+
+2. Install Arduino IDE and the ESP32 board package.
+
+3. Install required libraries from Arduino Library Manager:
+
+| Library | Purpose |
+| --- | --- |
+| TFT_eSPI by Bodmer | ST7789 display driver. |
+| LVGL v9.4.x | UI framework. |
+| XPT2046_Touchscreen by Paul Stoffregen | Resistive touch input. |
+| DHT sensor library by Adafruit | DHT11 readings. |
+
+4. Copy the WiFi template and fill in your local credentials.
+
+```powershell
+Copy-Item .\Cay-trong-thong-minh\smartPlant\secrets.example.h .\Cay-trong-thong-minh\smartPlant\secrets.h
+```
+
+5. Open and upload the main firmware:
+
+```text
+Cay-trong-thong-minh/smartPlant/smartPlant.ino
+```
+
+Board settings:
+
+| Setting | Value |
+| --- | --- |
+| Board | ESP32 Dev Module |
+| Upload speed | 115200 |
+| Display rotation | 3, landscape |
+| Serial monitor | 115200 baud |
 
 ## Required Display Configuration
 
-TFT_eSPI reads its configuration from the installed library folder, not from this repository. On the local Windows setup this is typically:
+The repository includes reference configuration files:
 
 ```text
-C:\Users\HuyVo\Documents\Arduino\libraries\TFT_eSPI\User_Setup.h
+User_Setup.h
+lv_conf.h
 ```
 
-Important values:
+Arduino libraries do not read those files directly from the repository. Copy them into the installed Arduino library locations before compiling:
+
+```powershell
+Copy-Item .\User_Setup.h "$env:USERPROFILE\Documents\Arduino\libraries\TFT_eSPI\User_Setup.h" -Force
+Copy-Item .\lv_conf.h "$env:USERPROFILE\Documents\Arduino\libraries\lv_conf.h" -Force
+```
+
+Important TFT_eSPI values:
 
 ```c
 #define ST7789_DRIVER
@@ -87,9 +149,16 @@ Important values:
 #define TOUCH_CS 21
 ```
 
-LVGL also reads `lv_conf.h` from the library-side location. Enable LVGL with `#if 1`, use `LV_COLOR_DEPTH 16`, and keep the fonts used by the EEZ Studio UI enabled.
+Important LVGL values:
 
-## Smart Plant Firmware Flow
+```c
+#if 1
+#define LV_COLOR_DEPTH 16
+```
+
+Keep the fonts used by the EEZ Studio UI enabled in `lv_conf.h`.
+
+## Firmware Flow
 
 ```mermaid
 graph TD
@@ -105,25 +174,56 @@ graph TD
     J --> K[Refresh dashboard widgets]
 ```
 
+## Project Layout
+
+```text
+Smart-Plant-System/
+  .obsidian/                         Obsidian vault settings
+  docs/README.vi.md                  Vietnamese README
+  docs/assets/                       UI image and demo video
+  Cay-trong-thong-minh/
+    Smart Plant System.md            Main Obsidian project note
+    Bases/                           Obsidian Bases and Canvas diagrams
+    Books/                           Reading notes
+    Tasks/                           Project task notes
+    DHT_Test/                        Standalone DHT test sketch
+    NeoPixel_Test/                   Standalone NeoPixel test sketch
+    smartPlant/                      Main ESP32 smart plant firmware
+    ui/                              EEZ Studio generated UI reference
+  User_Setup.h                       TFT_eSPI config to copy into Arduino libraries
+  lv_conf.h                          LVGL config to copy into Arduino libraries
+```
+
 ## Obsidian Vault
 
-Open the repository root as an Obsidian vault to use the included `.obsidian` configuration. Useful files:
+Open the repository root as an Obsidian vault to use the included project notes.
 
-- `Cay-trong-thong-minh/Smart Plant System.md`: primary system documentation.
-- `Cay-trong-thong-minh/Bases/Smart Plant.canvas`: hardware and data-flow diagram.
-- `Cay-trong-thong-minh/Bases/Smart Plant Tracker.base`: project status view.
-- `Cay-trong-thong-minh/Bases/Task Tracker.base`: task list grouped by status.
-- `Cay-trong-thong-minh/Bases/Reading List.base`: project reading list.
-- `Cay-trong-thong-minh/Bases/Dashboard.base`: combined notes dashboard.
+Useful files:
+
+| File | Purpose |
+| --- | --- |
+| `Cay-trong-thong-minh/Smart Plant System.md` | Main system documentation. |
+| `Cay-trong-thong-minh/Bases/Smart Plant.canvas` | Hardware and data-flow diagram. |
+| `Cay-trong-thong-minh/Bases/Smart Plant Tracker.base` | Project status view. |
+| `Cay-trong-thong-minh/Bases/Task Tracker.base` | Task list grouped by status. |
+| `Cay-trong-thong-minh/Bases/Reading List.base` | Reading list. |
+| `Cay-trong-thong-minh/Bases/Dashboard.base` | Combined notes dashboard. |
 
 ## Troubleshooting
 
-- White screen: confirm ST7789 is selected, pins match, and SPI frequency is 27 MHz.
-- Wrong colors: try toggling `TFT_RGB_ORDER` and TFT inversion settings.
-- Upload fails: hold BOOT during the Arduino IDE "Connecting..." phase.
-- DHT read fails: check DATA on GPIO 27 and add a 4.7k pull-up between DATA and VCC.
-- Touch is offset: run the calibration sketch under `kartis_smart_home_v1-main`.
+| Problem | Fix |
+| --- | --- |
+| White screen | Confirm ST7789 driver, wiring, and `SPI_FREQUENCY 27000000`. |
+| Wrong colors | Toggle `TFT_RGB_ORDER` and TFT inversion settings in TFT_eSPI. |
+| Upload fails | Hold BOOT while Arduino IDE shows "Connecting...". |
+| DHT read fails | Check DATA on GPIO 27 and add a 4.7k pull-up between DATA and VCC. |
+| Touch is offset | Recalibrate XPT2046 raw min/max values for the current display rotation. |
+| WiFi/NTP fails | Check `smartPlant/secrets.h`; firmware falls back to static time values if WiFi is unavailable. |
 
-## Project Status
+## Security
 
-The main smart plant firmware is active and located in `Cay-trong-thong-minh/smartPlant`. The repository also keeps earlier smart home/dashboard experiments for reference.
+Never commit `secrets.h`, WiFi credentials, generated build outputs, or local Arduino cache folders. Use `secrets.example.h` as the public template and keep private values only on your machine.
+
+## License
+
+No license file has been added yet. Add one before redistributing the project outside personal or classroom use.
