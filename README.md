@@ -30,10 +30,6 @@
   <a href="#troubleshooting">Troubleshooting</a>
 </p>
 
-<p align="center">
-  <img src="docs/assets/demo-img.png" alt="Smart Plant hardware prototype running the TFT dashboard" width="100%">
-</p>
-
 ## Overview
 
 Smart Plant System is a small ESP32 IoT project for monitoring and controlling a plant setup. The main firmware reads air temperature, air humidity, soil moisture, and rain level, then displays live values on a 320x240 TFT touch dashboard. Two on-screen switches control active-low relays for a light and a water pump.

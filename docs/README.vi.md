@@ -8,10 +8,6 @@
   <a href="../README.md">English</a>
 </p>
 
-<p align="center">
-  <img src="assets/demo-img.png" alt="Mô hình phần cứng Smart Plant đang chạy dashboard TFT" width="100%">
-</p>
-
 ## Tổng quan
 
 Smart Plant System là dự án IoT nhỏ cho ESP32 dùng để theo dõi và điều khiển mô hình chăm sóc cây. Firmware chính đọc nhiệt độ, độ ẩm không khí, độ ẩm đất và lượng mưa, sau đó hiển thị dữ liệu trên dashboard TFT 320x240. Hai công tắc cảm ứng trên giao diện điều khiển relay đèn và relay bơm.
