@@ -45,6 +45,10 @@ The UI is generated with EEZ Studio and rendered through LVGL v9.4. Project note
 The dashboard shows the current time, date, soil status, rain/sun status, temperature arc, and relay controls. The sketch refreshes sensor data every 5 seconds and updates dashboard widgets every 500 ms.
 
 
+https://github.com/user-attachments/assets/216a2a73-00a2-46a3-b486-1923e65aa5a5
+
+
+
 ## Features
 
 | Area | What it does |
