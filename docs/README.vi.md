@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/smartplant-ui.jpg" alt="Giao diện Smart Plant trong EEZ Studio" width="100%">
+  <img src="assets/demo-img.png" alt="Mô hình phần cứng Smart Plant đang chạy dashboard TFT" width="100%">
 </p>
 
 ## Tổng quan
@@ -20,9 +20,15 @@ Giao diện được thiết kế bằng EEZ Studio và render bằng LVGL v9.4.
 
 ## Demo
 
-| Giao diện | Video |
+| Mô hình phần cứng | Giao diện EEZ Studio |
 | --- | --- |
-| <img src="assets/smartplant-ui.jpg" alt="Giao diện Smart Plant trong EEZ Studio" width="620"> | [Xem video demo](assets/smartplant-demo.mp4) |
+| <img src="assets/demo-img.png" alt="Mô hình Smart Plant trên breadboard với ESP32 và màn hình TFT" width="520"> | <img src="assets/smartplant-ui.jpg" alt="Giao diện Smart Plant trong EEZ Studio" width="620"> |
+
+Video demo:
+
+```text
+https://drive.google.com/file/d/18nuQyn8GsqG1Ad74C0_Dn59zHAqQSAOb/view?usp=sharing
+```
 
 ## Tính năng
 
@@ -158,7 +164,7 @@ graph TD
 Smart-Plant-System/
   .obsidian/                         Cấu hình vault Obsidian
   docs/README.vi.md                  README tiếng Việt
-  docs/assets/                       Ảnh UI và video demo
+  docs/assets/                       Ảnh phần cứng và ảnh UI
   Cay-trong-thong-minh/
     Smart Plant System.md            Ghi chú chính của dự án
     Bases/                           Obsidian Bases và Canvas

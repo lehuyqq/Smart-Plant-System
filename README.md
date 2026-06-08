@@ -31,7 +31,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/smartplant-ui.jpg" alt="Smart Plant dashboard designed in EEZ Studio" width="100%">
+  <img src="docs/assets/demo-img.png" alt="Smart Plant hardware prototype running the TFT dashboard" width="100%">
 </p>
 
 ## Overview
@@ -42,11 +42,17 @@ The UI is generated with EEZ Studio and rendered through LVGL v9.4. Project note
 
 ## Showcase
 
-| Dashboard UI | Demo |
+| Hardware prototype | EEZ Studio UI |
 | --- | --- |
-| <img src="docs/assets/smartplant-ui.jpg" alt="Smart Plant UI in EEZ Studio" width="620"> | [Watch demo video](docs/assets/smartplant-demo.mp4) |
+| <img src="docs/assets/demo-img.png" alt="Smart Plant prototype on breadboard with ESP32 and TFT" width="520"> | <img src="docs/assets/smartplant-ui.jpg" alt="Smart Plant UI in EEZ Studio" width="620"> |
 
 The dashboard shows the current time, date, soil status, rain/sun status, temperature arc, and relay controls. The sketch refreshes sensor data every 5 seconds and updates dashboard widgets every 500 ms.
+
+Demo video:
+
+```text
+https://drive.google.com/file/d/18nuQyn8GsqG1Ad74C0_Dn59zHAqQSAOb/view?usp=sharing
+```
 
 ## Features
 
@@ -180,7 +186,7 @@ graph TD
 Smart-Plant-System/
   .obsidian/                         Obsidian vault settings
   docs/README.vi.md                  Vietnamese README
-  docs/assets/                       UI image and demo video
+  docs/assets/                       Hardware and UI images
   Cay-trong-thong-minh/
     Smart Plant System.md            Main Obsidian project note
     Bases/                           Obsidian Bases and Canvas diagrams
